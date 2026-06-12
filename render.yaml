@@ -1,0 +1,50 @@
+services:
+  # ── PostgreSQL Database ────────────────────────────────────────────────
+  - type: psql
+    name: ksp-postgres
+    plan: free
+    version: 15
+
+  # ── Redis Cache ────────────────────────────────────────────────────────
+  - type: redis
+    name: ksp-redis
+    plan: free
+
+  # ── FastAPI Backend ────────────────────────────────────────────────────
+  - type: web
+    name: ksp-backend
+    env: docker
+    dockerfilePath: backend/docker/Dockerfile
+    dockerContext: backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ksp-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: ksp-redis
+          property: connectionString
+      - key: APP_ENV
+        value: production
+      - key: CORS_ORIGINS
+        value: "https://ksp-frontend.onrender.com"
+      - key: GEMINI_API_KEY
+        sync: false # Set manually in Render dashboard
+      - key: SECRET_KEY
+        generateValue: true
+
+  # ── React Frontend ─────────────────────────────────────────────────────
+  - type: web
+    name: ksp-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        value: "https://ksp-backend.onrender.com/api/v1"
+      # If using a custom subdomain for backend, update VITE_API_URL
