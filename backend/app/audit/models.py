@@ -9,8 +9,7 @@ from typing import List, Optional
 
 from fastapi import APIRouter, Depends, Query
 from pydantic import BaseModel
-from sqlalchemy import String, Text, desc, select, func
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import JSON, String, Text, desc, select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -30,7 +29,7 @@ class AuditLog(Base):
     action: Mapped[str] = mapped_column(String(100), index=True, nullable=False)
     resource: Mapped[str] = mapped_column(String(100), nullable=False)
     resource_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
-    details: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+    details: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     ip_address: Mapped[str | None] = mapped_column(String(45), nullable=True)
     user_agent: Mapped[str | None] = mapped_column(String(500), nullable=True)
     status_code: Mapped[int | None] = mapped_column(nullable=True)

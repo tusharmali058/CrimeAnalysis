@@ -44,7 +44,7 @@ class Settings(BaseSettings):
     postgres_user: str = "ksp_user"
     postgres_password: str = "ksp_secure_pass_2025"
     postgres_db: str = "ksp_crime_intel"
-    database_url: str = "postgresql+asyncpg://ksp_user:ksp_secure_pass_2025@localhost:5432/ksp_crime_intel"
+    database_url: str = "sqlite+aiosqlite:///./ksp_crime.db"
 
     @property
     def sync_database_url(self) -> str:

@@ -8,9 +8,8 @@ import enum
 from datetime import date, datetime
 
 from sqlalchemy import (
-    Boolean, Date, DateTime, Enum, Float, Integer, String, Text,
+    Boolean, Date, DateTime, Enum, Float, Integer, JSON, String, Text,
 )
-from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -48,8 +47,8 @@ class FIR(Base):
     # Crime classification
     crime_type: Mapped[str] = mapped_column(String(100), index=True, nullable=False)
     crime_category: Mapped[str | None] = mapped_column(String(100), nullable=True)
-    ipc_sections: Mapped[dict | None] = mapped_column(JSONB, nullable=True)  # ["302", "34"]
-    act_sections: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+    ipc_sections: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # ["302", "34"]
+    act_sections: Mapped[dict | None] = mapped_column(JSON, nullable=True)
 
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     brief_facts: Mapped[str | None] = mapped_column(Text, nullable=True)

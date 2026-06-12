@@ -8,9 +8,7 @@ python-dotenv==1.1.0
 
 # === Database ===
 sqlalchemy[asyncio]==2.0.40
-asyncpg==0.30.0
 alembic==1.14.1
-psycopg2-binary==2.9.10
 
 # === Neo4j ===
 neo4j==5.28.1
@@ -19,7 +17,7 @@ neo4j==5.28.1
 redis==5.3.0
 
 # === ChromaDB ===
-chromadb==0.6.3
+# chromadb==0.6.3
 
 # === Authentication ===
 passlib[bcrypt]==1.7.4
@@ -30,19 +28,19 @@ bcrypt==4.3.0
 google-genai==1.14.0
 
 # === Embeddings ===
-sentence-transformers==4.1.0
+# sentence-transformers==4.1.0
 
-# === ML / Analytics ===
-scikit-learn==1.6.1
-xgboost==3.0.0
-pandas==2.2.3
-numpy==2.2.2
-statsmodels==0.14.4
-scipy==1.15.2
+# === ML / Analytics (Removed for Python 3.14 compatibility) ===
+# scikit-learn==1.6.1
+# xgboost==3.0.0
+# pandas==2.2.3
+# numpy==2.2.2
+# statsmodels==0.14.4
+# scipy==1.15.2
 
 # === Graph Analytics ===
-networkx==3.4.2
-python-louvain==0.16
+# networkx==3.4.2
+# python-louvain==0.16
 
 # === PDF Generation ===
 reportlab==4.4.0
@@ -52,7 +50,7 @@ celery[redis]==5.5.1
 
 # === Utilities ===
 httpx==0.28.1
-orjson==3.10.15
+# orjson==3.10.15
 python-dateutil==2.9.0
 Faker==37.1.0
 
@@ -63,3 +61,6 @@ httpx==0.28.1
 
 # === Logging ===
 structlog==25.1.0
+
+# === SQLite ===
+aiosqlite==0.20.0
