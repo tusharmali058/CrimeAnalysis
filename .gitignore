@@ -1,0 +1,49 @@
+# ── Dependencies ─────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Build Output ─────────────────────────────────────────────────────────
+dist/
+build/
+
+# ── Environment Variables (NEVER commit secrets) ─────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Python Backend ───────────────────────────────────────────────────────
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+backend/**/*.egg-info/
+backend/venv/
+backend/.venv/
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS Generated ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ─────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# ── Docker Volumes (local data) ──────────────────────────────────────────
+docker-data/
+
+# ── Lock files (keep pnpm-lock, ignore others if not needed) ─────────────
+package-lock.json
+yarn.lock

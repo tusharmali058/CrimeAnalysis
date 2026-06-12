@@ -1,0 +1,65 @@
+# === FastAPI Core ===
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pydantic==2.11.1
+pydantic-settings==2.7.1
+python-dotenv==1.1.0
+
+# === Database ===
+sqlalchemy[asyncio]==2.0.40
+asyncpg==0.30.0
+alembic==1.14.1
+psycopg2-binary==2.9.10
+
+# === Neo4j ===
+neo4j==5.28.1
+
+# === Redis ===
+redis==5.3.0
+
+# === ChromaDB ===
+chromadb==0.6.3
+
+# === Authentication ===
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.4.0
+bcrypt==4.3.0
+
+# === AI / LLM ===
+google-genai==1.14.0
+
+# === Embeddings ===
+sentence-transformers==4.1.0
+
+# === ML / Analytics ===
+scikit-learn==1.6.1
+xgboost==3.0.0
+pandas==2.2.3
+numpy==2.2.2
+statsmodels==0.14.4
+scipy==1.15.2
+
+# === Graph Analytics ===
+networkx==3.4.2
+python-louvain==0.16
+
+# === PDF Generation ===
+reportlab==4.4.0
+
+# === Background Jobs ===
+celery[redis]==5.5.1
+
+# === Utilities ===
+httpx==0.28.1
+orjson==3.10.15
+python-dateutil==2.9.0
+Faker==37.1.0
+
+# === Testing ===
+pytest==8.3.5
+pytest-asyncio==0.25.3
+httpx==0.28.1
+
+# === Logging ===
+structlog==25.1.0
